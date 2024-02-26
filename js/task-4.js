@@ -7,6 +7,8 @@ const info = {
     email: elements.email.value,
     password: elements.password.value,
 }  
+console.log(info);
+
 if (info.email === "" || info.password === "") {
     alert ("All form fields must be filled in");
   }
