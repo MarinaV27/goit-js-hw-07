@@ -13,5 +13,19 @@ body {
   line-height: 1.5;
 }
 
+.gallery {
+  height: 1128px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-content: center;
+  flex-basis: calc((100% - 16px) / 3);
 
+}
+.list-item {
+  width: 360px;
+  height: 300px;
+  margin: 20px;
+}
 
