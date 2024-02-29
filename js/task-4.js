@@ -9,7 +9,7 @@ const info = {
 }  
 console.log(info);
 
-if (info.email === "" || info.password === "") {
+if (info.email.trim() === "" || info.password.trim() === "") {
     alert ("All form fields must be filled in");
   }
 event.currentTarget.reset();
