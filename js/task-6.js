@@ -1,46 +1,45 @@
-const textInput = document.querySelector("#controls");
-const setFocusBtn = document.querySelector('[data-create]');
-const removeFocusBtn = document.querySelector('[data-destroy]');
+const controls = document.querySelector("controls");
+const numberInput = document.querySelector("input");
+const createBtn = document.querySelector('[data-create]');
+const destroyBtn = document.querySelector('[data-destroy]');
+const boxesEl = document.querySelector("#boxes");
+boxesEl.style.display = 'flex';
+boxesEl.style.flexWrap = 'wrap';
+boxesEl.style.alignItems = 'center';
+boxesEl.style.marginTop = '30px';
 
-setFocusBtn.addEventListener("click", () => {
-  textInput.focus();
+numberInput.addEventListener("input", toogleValue);
+createBtn.addEventListener("click", () => {
+  createBoxes(Number(numberInput.value));
 });
+destroyBtn.addEventListener("click", destroyBoxes);
+let inputValue = 0;
+function toogleValue(event) {
+  inputValue = event.currentTarget.value;
+  console.log(inputValue);
+}
 
-removeFocusBtn.addEventListener("click", () => {
-  textInput.blur();
-});
-
-textInput.addEventListener("focus", () => {
-  textInput.value = "This input has focus";
-});
-
-textInput.addEventListener("blur", () => {
-  textInput.value = "";
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function createBoxes(amount) {
+ boxesEl.innerHTML = "";
+   let newDiv = [];
+   let boxsize = 30;
+   if (amount <= 100 ){
+  for (let i = 1; i <= amount; i += 1) {
+    newDiv = `<div style="width: ${boxsize}px; height: ${boxsize}px; background: ${getRandomHexColor()}"></div>`;
+    boxesEl.insertAdjacentHTML("beforeend", newDiv);
+    boxsize += 10;
+  }
+}
+}
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)
     .toString(16)
     .padStart(6, 0)}`;
+}
+function destroyBoxes(){
+  numberInput.value = "";
+  return (boxesEl.innerHTML = "")
 }
 
 
@@ -49,9 +48,15 @@ function getRandomHexColor() {
 
 
 
+
+
+
+
+
+
+
+
 //Напиши скрипт створення й очищення колекції елементів з наступним функціоналом.
-
-
 
 //Є input, у який користувач вводить бажану кількість елементів. 
 //Після натискання на кнопку Create має рендеритися (додаватися в DOM) 
@@ -62,7 +67,7 @@ function getRandomHexColor() {
 
 //Після натискання користувачем на кнопку Create треба провалідувати значення в input,
 //воно має бути в межах від 1 до 100 включно. 
-//Т//ільки якщо воно задоволяє умову, мають додаватися нові <div> елементи в DOM.
+//Тільки якщо воно задоволяє умову, мають додаватися нові <div> елементи в DOM.
 
 //Для рендеру елементів на сторінці створи функцію createBoxes(amount), 
 //яка приймає один параметр — число, що зберігає кількість елементів для рендеру.
@@ -84,7 +89,7 @@ function getRandomHexColor() {
 
 //На що буде звертати увагу ментор при перевірці:
 
-//П//ісля кліку на кнопку Create, якщо в input значення поза межами діапазону 1-100, 
+//Після кліку на кнопку Create, якщо в input значення поза межами діапазону 1-100, 
 //нічого не відбувається
 
 //П//ісля кліку на кнопку Create в div#boxes додається така кількість різнокольорових квадратів, 

@@ -30,7 +30,7 @@ const images = [
 
 const imagesEl= document.querySelector(".gallery");
 const liEl = images.map ( image => `<li class="list-item">
-<img src="${image.url}" alt="${image.alt} width="${360}" height="300"/>
+<img src="${image.url}" alt="${image.alt} width="360" height="300"/>
 </li>`)
 .join("");
 imagesEl.insertAdjacentHTML("beforeend", liEl);
