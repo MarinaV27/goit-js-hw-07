@@ -27,11 +27,14 @@ const images = [
     alt: 'Zebras on Zebra',
   },
 ];
-
 const imagesEl= document.querySelector(".gallery");
+imagesEl.style.display = `flex`;
+imagesEl.style.flexWrap = `wrap`;
+imagesEl.style.gap = `10px`;
+imagesEl.style.padding = `0px`;
+imagesEl.style.listStyle = `none`;
 const liEl = images.map ( image => `<li class="list-item">
 <img src="${image.url}" alt="${image.alt} width="360" height="300"/>
 </li>`)
 .join("");
 imagesEl.insertAdjacentHTML("beforeend", liEl);
-
