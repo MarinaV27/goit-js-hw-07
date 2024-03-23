@@ -15,7 +15,23 @@ if (info.email.trim() === "" || info.password.trim() === "") {
 event.currentTarget.reset();
 }
 
-
+function handleSubmit(event){
+    event.preventDefault();
+    const elements = event.currentTarget.elements;
+    const email = elements.email.value.trim();
+    const password = elements.password.value.trim();
+    
+    if (email === "" || password === "") {
+      alert("Всі поля форми повинні бути заповнені");
+      return; // Вийти з функції, якщо перевірка не пройшла
+    }
+    
+    // Якщо перевірка пройшла, залогувати інфо і скинути форму
+    const info = { email, password };
+    console.log(info);
+    event.currentTarget.reset();
+  }
+  
 
 
 
